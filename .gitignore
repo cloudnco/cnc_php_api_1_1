@@ -2,6 +2,11 @@
 bin/
 bin-debug/
 bin-release/
+build/
+dist/
+nbproject/
+utilities/backup/
+test/
 
 # Other files and folders
 .settings/
