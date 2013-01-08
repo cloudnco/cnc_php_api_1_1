@@ -56,6 +56,13 @@ class CloudNCo_Cookie extends CloudNCo_Object {
 	}
 	
 	/**
+	 * Get session ID 
+	 */
+	public function getID () {
+		return $this->sess_id ;
+	}
+	
+	/**
 	 * [PRIVATE] Save cookie
 	 * 
 	 * @throws CloudNCo_Exception

@@ -88,13 +88,11 @@ class CloudNCo extends CloudNCo_Object {
 		
 		
 		if ( strpos( self::$instance->config->get('URL') , 'localhost' ) === false ) {
-			$api_url = 'http://account.'.$account.'.com/api/' ;
-			self::$instance->application->api_url = $api_url . 'init/'.$account.'.json' ;
+			self::$instance->application->api_url = 'http://account.'.$account.'.com/api/init/'.$account.'.json?id='.self::$instance->cookie->getID() ;
 			self::$instance->application->bind ( 'application' ) ;
 			self::$instance->user->bind('user') ;
 			self::$instance->application->execute () ;
 		}
-		
 		
 		// Temporary : get element
 		if ( isset($_GET) && array_key_exists('cnc_el', $_GET) ) {

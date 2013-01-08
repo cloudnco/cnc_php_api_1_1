@@ -14,7 +14,9 @@
  * 
  * subscription - (object) Subscription details for the current application (Mandatory)
  * 
- * variables - (object) No description (Mandatory)
+ * variables - (object) User variables (Mandatory)
+ * 
+ * parent - (object) Parent user object if exists
  * 
  * (end)
  */
@@ -27,7 +29,8 @@ class CloudNCo_User extends CloudNCo_APIRequest {
 			new CloudNCo_Attribute('logged_in', CloudNCo_Attribute::BOOLEAN_ATTR, true, false),
 			new CloudNCo_Attribute('subusers', CloudNCo_Attribute::OBJECT_ATTR, true),
 			new CloudNCo_Attribute('subscription', CloudNCo_Attribute::OBJECT_ATTR, true),
-			new CloudNCo_Attribute('variables', CloudNCo_Attribute::OBJECT_ATTR, true)
+			new CloudNCo_Attribute('variables', CloudNCo_Attribute::OBJECT_ATTR, true),
+			new CloudNCo_Attribute('parent', CloudNCo_Attribute::OBJECT_ATTR,false)
 		)) ;
 		$this->subscription = new CloudNCo_Subscription() ;
 		$this->subusers = new CloudNCo_SubUsers () ;

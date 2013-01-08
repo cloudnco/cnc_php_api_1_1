@@ -1,4 +1,4 @@
-cnc_php_api_1_1
-===============
-
 CloudNCo PHP API v1.1
+=====================
+
+Integration documentation: http://www.cloudnco.net/documentation/
