@@ -29,7 +29,7 @@
  * 
  * privacy_url - (string) Application privacy page URL
  * 
- * variables - (object)  (Mandatory, default value: new CloudNCo_Variables()
+ * variables - (object) Application variables (Mandatory, default value: new CloudNCo_Variables()
  * 
  * (end)
  */

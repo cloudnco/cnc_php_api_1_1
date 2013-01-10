@@ -11,12 +11,17 @@ class CloudNCo_Cookie extends CloudNCo_Object {
 
 	private $sess_id = null ;
 
+	private $product ;
+	
 	/**
 	 * Creates a new CloudNCo_Cookie instance
 	 *
 	 * Try to restore existing cookie, otherwise creates a new one
 	 */
-	public function __construct() {
+	public function __construct( $product ) {
+		
+		$this->product = $product ;
+		
 		// Try to restore
 		if ( !$this->restore() ) {
 			// Can't restore: create a new one
@@ -47,7 +52,7 @@ class CloudNCo_Cookie extends CloudNCo_Object {
 	 * @return int Cookie status
 	 */
 	public function destroy () {
-		setrawcookie('cnc_sess','');
+		setrawcookie('cnc_sess','',time() + (86400 * 30),'/', '.'.$this->product.'.com');
 		$this->sess_id = $this->generateID() ;
 		$this->save() ;
 		$this->status = 1 ;
@@ -71,7 +76,7 @@ class CloudNCo_Cookie extends CloudNCo_Object {
 		if ( headers_sent() ) {
 			throw new CloudNCo_Exception ('CloudNCo_Session::save() should be used prior to any output');
  		}
-		setrawcookie('cnc_sess',$this->sess_id,time() + (86400 * 30));
+		setrawcookie('cnc_sess',$this->sess_id,time() + (86400 * 30),'/', '.'.$this->product.'.com');
 	}
 	
 	/**

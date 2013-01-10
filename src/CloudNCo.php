@@ -71,7 +71,7 @@ class CloudNCo extends CloudNCo_Object {
 		));
 		
 		self::$instance->application = new CloudNCo_Application () ;
-		self::$instance->cookie = new CloudNCo_Cookie () ;
+		self::$instance->cookie = new CloudNCo_Cookie ( $account ) ;
 		self::$instance->user = new CloudNCo_User () ;
 		self::$instance->utils = new CloudNCo_Utils () ;
 		self::$instance->config = new CloudNCo_Config () ;
