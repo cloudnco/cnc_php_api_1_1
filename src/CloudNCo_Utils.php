@@ -42,7 +42,7 @@ class CloudNCo_Utils extends CloudNCo_Object {
 
 		return '';
 	}
-
+	
 	/**
 	 * Returns upgrade account URL
 	 *
@@ -74,6 +74,16 @@ class CloudNCo_Utils extends CloudNCo_Object {
 		return str_replace('http://', 'https://', CloudNCo::config()->get('accountURL') )  . 'checkout/index/direct' ;
 	}
 
+
+	/**
+	 * Returns URL of page where user can buy new credits
+	 *
+	 * @return string The URL of page where user can buy new credits
+	 */
+	function getAddCreditURL ()
+	{
+		return str_replace('http://', 'https://', CloudNCo::config()->get('accountURL') ) . 'checkout/credits/add' ;
+	}
 
 	/**
 	 * Returns a javascript snippet to insert between <head> and </head>, used
