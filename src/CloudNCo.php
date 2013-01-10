@@ -152,6 +152,16 @@ class CloudNCo extends CloudNCo_Object {
 	
 	
 	/**
+	 * Get the API callback object
+	 *
+	 * @return CloudNCo_Callback Returns the CloudNCo_Callback instance used by the CloudNCo API 
+	 */
+	static function callback () {
+		return self::$instance->callback;
+	}
+	
+	
+	/**
 	 * [DEPRECATED] Get the API session object
 	 * 
 	 * This function is deprecated, you should not use it anymore
