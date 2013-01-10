@@ -55,7 +55,7 @@ class CloudNCo extends CloudNCo_Object {
 	static function init ( $account, $privateKey, $debug = false ) {
 		
 		if (!is_null(self::$instance)) {
-			throw new CloudNCo_Exception ('It is not authorized to instanciate CloudNCo class twice');
+			return self::$instance ;
 		}
 		
 		self::$instance = new CloudNCo () ;
