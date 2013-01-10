@@ -91,6 +91,8 @@ class CloudNCo extends CloudNCo_Object {
 			self::$instance->application->api_url = 'http://account.'.$account.'.com/api/init/'.$account.'.json?id='.self::$instance->cookie->getID() ;
 			self::$instance->application->bind ( 'application' ) ;
 			self::$instance->user->bind('user') ;
+			self::$instance->user->subscription->bind('subscription') ;
+			self::$instance->user->subscription->credits->bind('credits') ;
 			self::$instance->application->execute () ;
 		}
 		

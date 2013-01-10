@@ -18,7 +18,7 @@
  * 
  * (end)
  */
-class CloudNCo_Credits extends CloudNCo_Object {
+class CloudNCo_Credits extends CloudNCo_APIRequest {
 
 	function __construct ( $values = array () ) {
 		$this->setAttributes(array(

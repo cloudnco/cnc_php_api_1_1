@@ -27,8 +27,6 @@ class CloudNCo_APIRequest extends CloudNCo_Object {
 
 	private $body ;
 	
-	private static $binds = array () ;
-	
 	function __construct ( $values = array () ) {
 		$this->setAttributes(array(
 			new CloudNCo_Attribute('api_url', CloudNCo_Attribute::STRING_ATTR, true),
@@ -42,14 +40,6 @@ class CloudNCo_APIRequest extends CloudNCo_Object {
 	}
 	
 	
-	/**
-	 * Bind result of next request to current class instance
-	 * 
-	 * @throws CloudNCo_Exception Throwed if API call fails
-	 */
-	function bind ( $key ) {
-		self::$binds[$key] = $this ;
-	}
 	
 	
 	/**

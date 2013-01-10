@@ -11,6 +11,17 @@ class CloudNCo_Object extends CloudNCo_Base {
 
 	protected $data = array () ;
 
+	protected static $binds = array () ;
+	
+	/**
+	 * Bind result of next CloudNCo_APIRequest to current class instance
+	 * 
+	 * @throws CloudNCo_Exception Throwed if API call fails
+	 */
+	function bind ( $key ) {
+		self::$binds[$key] = $this ;
+	}
+	
 	/**
 	 * Get attribute description
 	 *

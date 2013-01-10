@@ -20,7 +20,7 @@
  * 
  * (end)
  */
-class CloudNCo_Subscription extends CloudNCo_Object {
+class CloudNCo_Subscription extends CloudNCo_APIRequest {
 
 	function __construct ( $values = array () ) {
 		$this->setAttributes(array(
