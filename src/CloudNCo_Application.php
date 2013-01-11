@@ -66,18 +66,16 @@ class CloudNCo_Application extends CloudNCo_APIRequest {
 	 * 
 	 * You should not directly use this method as it's called by the <CloudNCo>::init () method
 	 * 
-	 * If the private key is yet set, calling this method will throw an exception
 	 * 
 	 * @param string $privateKey The private key
 	 * @throws CloudNCo_Exception Throwed in case the privateKey has been set yet
 	 */
 	function setPrivateKey ( $privateKey ) {
-		
-		if ( !is_null(self::$privateKey) ) {
-			throw new CloudNCo_Exception ('CloudNCo private key yet set') ;
+		if ( is_string($privateKey) && $privateKey != '' ) {
+			self::$privateKey = $privateKey ;
+		} else {
+			throw new CloudNCo_Exception () ;
 		}
-		
-		self::$privateKey = $privateKey ;
 	}
 	
 	/**
@@ -89,6 +87,14 @@ class CloudNCo_Application extends CloudNCo_APIRequest {
 		return self::$privateKey;
 	}
 
+	/**
+	 * Check if the private key is set
+	 * 
+	 * @return boolean True if private key is set, false otherwise
+	 */
+	function hasPrivateKey () {
+		return !is_null( self::$privateKey );
+	}
 }
 
 ?>

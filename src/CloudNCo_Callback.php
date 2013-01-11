@@ -10,7 +10,6 @@ class CloudNCo_Callback extends CloudNCo_Base {
 	private $data = array () ;
 	
 	function __construct () {
-		
 		if ( !empty ( $_POST ) && 
 			array_key_exists('public', $_POST) &&
 			array_key_exists('hash', $_POST) &&
@@ -26,8 +25,6 @@ class CloudNCo_Callback extends CloudNCo_Base {
 
 			$this->data = unserialize($content) ;
 		}
-		
-		return false ;
 	}
 	
 	/**
@@ -123,12 +120,11 @@ class CloudNCo_Callback extends CloudNCo_Base {
 	 */
 	final public function isValidKey ( $public, $hashed )
 	{
-		if ( CloudNCo::config()->has( 'privateKey' ) == false )
-		{
-			return false ;
+		if ( !CloudNCo::application()->hasPrivateKey() ) {
+			throw new CloudNCo_Exception('CloudNCo callbacks requires a private key to be set (through CloudNCo::init)');
 		}
 		
-		if ( $hashed == sha1($public . CloudNCo::config()->get('privateKey') ))
+		if ( $hashed == sha1($public . CloudNCo::application()->getPrivateKey() ) )
 		{
 			return true ;
 		}

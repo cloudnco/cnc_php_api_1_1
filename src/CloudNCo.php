@@ -14,7 +14,6 @@ require_once('CloudNCo_Cookie.php') ;
 require_once('CloudNCo_Subscription.php') ;
 require_once('CloudNCo_Credits.php') ;
 require_once('CloudNCo_SubUsers.php') ;
-require_once('CloudNCo_Security.php') ;
 require_once('CloudNCo_Utils.php') ;
 require_once('CloudNCo_Config.php') ;
 require_once('CloudNCo_User.php') ;
@@ -66,7 +65,6 @@ class CloudNCo extends CloudNCo_Object {
 			new CloudNCo_Attribute('cookie', CloudNCo_Attribute::OBJECT_ATTR, true),
 			new CloudNCo_Attribute('user', CloudNCo_Attribute::OBJECT_ATTR, true),
 			new CloudNCo_Attribute('utils', CloudNCo_Attribute::OBJECT_ATTR, true),
-			new CloudNCo_Attribute('security', CloudNCo_Attribute::OBJECT_ATTR, true),
 			new CloudNCo_Attribute('callback', CloudNCo_Attribute::OBJECT_ATTR, true)
 		));
 		
@@ -75,14 +73,12 @@ class CloudNCo extends CloudNCo_Object {
 		self::$instance->user = new CloudNCo_User () ;
 		self::$instance->utils = new CloudNCo_Utils () ;
 		self::$instance->config = new CloudNCo_Config () ;
-		self::$instance->security = new CloudNCo_Security () ;
 		self::$instance->callback = new CloudNCo_Callback () ;
 		
 		self::$instance->application->name = $account ;
 		self::$instance->application->setPrivateKey($privateKey) ;
 		
 		self::$instance->config->set('mode', 'production') ;
-		self::$instance->config->set('privateKey', $privateKey) ;
 		self::$instance->config->set('URL', self::$instance->utils->getURL()) ;
 		self::$instance->config->set('accountURL', self::$instance->utils->getAccountURL()) ;
 		self::$instance->config->set('widgetURL', self::$instance->config->get('accountURL') . 'assets/js/widget.js') ;
@@ -115,7 +111,7 @@ class CloudNCo extends CloudNCo_Object {
 	/**
 	 * Get the API application object
 	 *
-	 * @return CloudNCo_Config Returns the CloudNCo_Config instance used by the CloudNCo API 
+	 * @return CloudNCo_Application Returns the CloudNCo_Config instance used by the CloudNCo API 
 	 */
 	static function application (){
 		return self::$instance->application;
@@ -179,10 +175,10 @@ class CloudNCo extends CloudNCo_Object {
 	 * 
 	 * This function is deprecated, you should not use it anymore
 	 *
-	 * @return CloudNCo_Security Returns the CloudNCo_Security instance used by the CloudNCo API 
+	 * @return NULL Returns NULL
 	 */
 	static function security () {
-		return self::$instance->security ;
+		return null ;
 	}
 	
 }
