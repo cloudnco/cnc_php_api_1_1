@@ -36,6 +36,8 @@
  * 
  * widget_url - (boolean) No description (Mandatory)
  * 
+ * private_key - (string) No description (Mandatory, default value: "")
+ * 
  * (end)
  *
  */
@@ -47,7 +49,6 @@ class CloudNCo_Config extends CloudNCo_Object {
 		$this->setAttributes(array(
 			new CloudNCo_Attribute('account_url', CloudNCo_Attribute::BOOLEAN_ATTR, true),
 			new CloudNCo_Attribute('widget_url', CloudNCo_Attribute::BOOLEAN_ATTR, true),
-			new CloudNCo_Attribute('private_key', CloudNCo_Attribute::STRING_ATTR, true, ''),
 		));
 	}
 

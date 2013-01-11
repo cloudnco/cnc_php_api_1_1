@@ -38,8 +38,6 @@ require_once('CloudNCo_LinkGATagger.php') ;
  * 
  * utils - (object) <CloudNCo_Utils> object (Mandatory)
  * 
- * security - (object) No description (Mandatory)
- * 
  * callback - (object) <CloudNCo_Callback> object (Mandatory)
  * 
  * (end)
@@ -69,14 +67,15 @@ class CloudNCo extends CloudNCo_Object {
 		));
 		
 		self::$instance->application = new CloudNCo_Application () ;
+		
+		self::$instance->application->name = $account ;
+		self::$instance->application->setPrivateKey($privateKey) ;
+		
 		self::$instance->cookie = new CloudNCo_Cookie ( $account ) ;
 		self::$instance->user = new CloudNCo_User () ;
 		self::$instance->utils = new CloudNCo_Utils () ;
 		self::$instance->config = new CloudNCo_Config () ;
 		self::$instance->callback = new CloudNCo_Callback () ;
-		
-		self::$instance->application->name = $account ;
-		self::$instance->application->setPrivateKey($privateKey) ;
 		
 		self::$instance->config->set('mode', 'production') ;
 		self::$instance->config->set('URL', self::$instance->utils->getURL()) ;
