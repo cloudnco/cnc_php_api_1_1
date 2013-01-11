@@ -6,6 +6,8 @@
  * (start generated)
  * email - (string) Email of the user
  * 
+ * code - (string) String identifier of the user
+ * 
  * name - (string) Name of the user, if available
  * 
  * logged_in - (boolean) Is the user logged in (Mandatory, default value: false)
@@ -25,6 +27,7 @@ class CloudNCo_User extends CloudNCo_APIRequest {
 	function __construct ( $values = array () ) {
 		$this->setAttributes(array(
 			new CloudNCo_Attribute('email', CloudNCo_Attribute::STRING_ATTR, false),
+			new CloudNCo_Attribute('code', CloudNCo_Attribute::STRING_ATTR, false),
 			new CloudNCo_Attribute('name', CloudNCo_Attribute::STRING_ATTR, false),
 			new CloudNCo_Attribute('logged_in', CloudNCo_Attribute::BOOLEAN_ATTR, true, false),
 			new CloudNCo_Attribute('subusers', CloudNCo_Attribute::OBJECT_ATTR, true),
