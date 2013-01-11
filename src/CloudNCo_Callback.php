@@ -123,7 +123,7 @@ class CloudNCo_Callback extends CloudNCo_Base {
 	 */
 	final public function isValidKey ( $public, $hashed )
 	{
-		if ( NextUser::config()->has( 'privateKey' ) == false )
+		if ( CloudNCo::config()->has( 'privateKey' ) == false )
 		{
 			return false ;
 		}

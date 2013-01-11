@@ -48,7 +48,7 @@ class CloudNCo_User extends CloudNCo_APIRequest {
 	public function autologin ( $redirect = false ) {
 		if ( !$this->is_subscriber ) {
 			if ( isset($_COOKIE) && array_key_exists('cloudnco_al', $_COOKIE) && !headers_sent() ) {
-				header('Location: ' . NextUser::utils()->getLoginURL($redirect)) ;
+				header('Location: ' . CloudNCo::utils()->getLoginURL($redirect)) ;
 				die () ;
 			}
 		}

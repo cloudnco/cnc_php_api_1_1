@@ -82,6 +82,7 @@ class CloudNCo extends CloudNCo_Object {
 		self::$instance->application->setPrivateKey($privateKey) ;
 		
 		self::$instance->config->set('mode', 'production') ;
+		self::$instance->config->set('privateKey', $privateKey) ;
 		self::$instance->config->set('URL', self::$instance->utils->getURL()) ;
 		self::$instance->config->set('accountURL', self::$instance->utils->getAccountURL()) ;
 		self::$instance->config->set('widgetURL', self::$instance->config->get('accountURL') . 'assets/js/widget.js') ;
